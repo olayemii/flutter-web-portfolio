@@ -202,18 +202,34 @@ class Header extends StatelessWidget {
     );
   }
 
+  Widget buildMobileHeader() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.0,
+        vertical: 16.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          HeaderLogo(),
+          GestureDetector(
+            onTap: () {},
+            child: Icon(
+              FlutterIcons.menu_fea,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: AdaptiveLayout(
         desktop: buildHeader(),
-        mobile: GestureDetector(
-          onTap: () {},
-          child: Icon(
-            FlutterIcons.menu_fea,
-            color: Colors.white,
-          ),
-        ),
+        mobile: buildMobileHeader(),
         tablet: buildHeader(),
       ),
     );
