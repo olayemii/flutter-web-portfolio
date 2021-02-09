@@ -10,11 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: AdaptiveLayout(
-          desktop: Header(),
-          mobile: Header(),
-          tablet: Header(),
-        ),
+        child: Header(),
       ),
     );
   }

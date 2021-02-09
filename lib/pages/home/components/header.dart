@@ -7,52 +7,37 @@ import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
-class Header extends StatelessWidget {
+class HeaderLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 16.0,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () {},
-              child: RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "M",
-                      style: GoogleFonts.oswald(
-                        color: Colors.white,
-                        fontSize: 32.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: ".",
-                      style: GoogleFonts.oswald(
-                        color: kPrimaryColor,
-                        fontSize: 36.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {},
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "M",
+                  style: GoogleFonts.oswald(
+                    color: Colors.white,
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+                TextSpan(
+                  text: ".",
+                  style: GoogleFonts.oswald(
+                    color: kPrimaryColor,
+                    fontSize: 36.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
             ),
           ),
-          Spacer(),
-          AdaptiveLayout(
-            desktop: HeaderRow(),
-            tablet: HeaderRow(),
-            mobile: Icon(FlutterIcons.menu_fea),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -195,6 +180,25 @@ class HeaderRow extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class Header extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: AdaptiveLayout(
+        desktop: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            HeaderLogo(),
+            HeaderRow(),
+          ],
+        ),
+        mobile: SizedBox(),
+        tablet: SizedBox(),
       ),
     );
   }
