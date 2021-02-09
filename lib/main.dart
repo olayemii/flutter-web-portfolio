@@ -20,13 +20,11 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.android,
         scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
-        textTheme: GoogleFonts.lancelotTextTheme(),
+        textTheme: GoogleFonts.latoTextTheme(),
       ),
       builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget),
-        maxWidth: 1366,
-        minWidth: 450,
-        defaultScale: true,
+        ClampingScrollWrapper.builder(context, widget),
+        defaultScale: false,
         breakpoints: [
           ResponsiveBreakpoint.resize(450, name: MOBILE),
           ResponsiveBreakpoint.autoScale(800, name: TABLET),
