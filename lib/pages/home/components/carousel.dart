@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/mouse_region_span.dart';
 
@@ -9,12 +10,12 @@ class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveWrapper(
-      maxWidth: 1200,
-      minWidth: 1200,
+      maxWidth: 1000.0,
+      minWidth: 1000.0,
       defaultScale: true,
       mediaQueryData: MediaQueryData(
         size: Size(
-          1200,
+          1000.0,
           MediaQuery.of(context).size.height - 200.0,
         ),
       ),
@@ -38,7 +39,7 @@ class Carousel extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 10.0,
+                        height: 30.0,
                       ),
                       Text(
                         "MICHELE\nHARRINGTON",
@@ -46,7 +47,7 @@ class Carousel extends StatelessWidget {
                           color: Colors.white,
                           fontWeight: FontWeight.w900,
                           fontSize: 50.0,
-                          height: 1.2,
+                          height: 1.3,
                         ),
                       ),
                       SizedBox(
@@ -66,7 +67,7 @@ class Carousel extends StatelessWidget {
                               text: "Need a fully custom website?",
                               style: TextStyle(
                                 color: kCaptionColor,
-                                height: 1.8,
+                                height: 2.0,
                                 fontSize: 14.0,
                               ),
                             ),
@@ -85,7 +86,7 @@ class Carousel extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 15.0,
+                        height: 25.0,
                       ),
                       MouseRegion(
                         cursor: SystemMouseCursors.click,
@@ -117,9 +118,23 @@ class Carousel extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  color: Colors.red,
+                  child: Image.asset(
+                    "assets/person.png",
+                    width: 100.0,
+                    height: 500.0,
+                  ),
                 ),
-              )
+              ),
+              AnimatedSmoothIndicator(
+                axisDirection: Axis.vertical,
+                activeIndex: 1,
+                count: 4,
+                effect: ExpandingDotsEffect(
+                  dotWidth: 10.0,
+                  expansionFactor: 5.0,
+                  dotHeight: 6.0,
+                ),
+              ),
             ],
           ),
         ),
