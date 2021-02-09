@@ -8,6 +8,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/mouse_region_span.dart';
 
+ValueNotifier currentIndex = ValueNotifier(0);
+
 class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,9 @@ class Carousel extends StatelessWidget {
                 options: CarouselOptions(
                   viewportFraction: 1.0,
                   scrollPhysics: NeverScrollableScrollPhysics(),
+                  onPageChanged: (int index, _) {
+                    currentIndex.value = index;
+                  },
                 ),
                 items: [1, 2, 3, 4, 5].map((i) {
                   return Builder(
@@ -152,14 +157,16 @@ class Carousel extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: AnimatedSmoothIndicator(
-                axisDirection: Axis.vertical,
-                activeIndex: 1,
-                count: 4,
-                effect: ExpandingDotsEffect(
-                  dotWidth: 10.0,
-                  expansionFactor: 5.0,
-                  dotHeight: 6.0,
+              child: ValueListenableBuilder(
+                child: AnimatedSmoothIndicator(
+                  axisDirection: Axis.vertical,
+                  activeIndex: 1,
+                  count: 4,
+                  effect: ExpandingDotsEffect(
+                    dotWidth: 10.0,
+                    expansionFactor: 5.0,
+                    dotHeight: 6.0,
+                  ),
                 ),
               ),
             ),
