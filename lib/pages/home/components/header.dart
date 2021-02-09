@@ -186,19 +186,35 @@ class HeaderRow extends StatelessWidget {
 }
 
 class Header extends StatelessWidget {
+  Widget buildHeader() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 16.0,
+        vertical: 16.0,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          HeaderLogo(),
+          HeaderRow(),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: AdaptiveLayout(
-        desktop: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            HeaderLogo(),
-            HeaderRow(),
-          ],
+        desktop: buildHeader(),
+        mobile: GestureDetector(
+          onTap: () {},
+          child: Icon(
+            FlutterIcons.menu_fea,
+            color: Colors.white,
+          ),
         ),
-        mobile: SizedBox(),
-        tablet: SizedBox(),
+        tablet: buildHeader(),
       ),
     );
   }
