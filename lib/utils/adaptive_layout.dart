@@ -13,10 +13,10 @@ class AdaptiveLayout extends StatelessWidget {
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 650.0;
+      MediaQuery.of(context).size.width < 800.0;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 650.0 &&
+      MediaQuery.of(context).size.width >= 800.0 &&
       MediaQuery.of(context).size.width < 1200.0;
 
   static bool isDesktop(BuildContext context) =>
@@ -26,9 +26,10 @@ class AdaptiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
+        print(constraints.maxWidth);
         if (constraints.maxWidth >= 1200.0) {
           return desktop;
-        } else if (constraints.maxWidth >= 650.0 &&
+        } else if (constraints.maxWidth >= 800.0 &&
             constraints.maxWidth < 1200.0) {
           return tablet;
         } else {

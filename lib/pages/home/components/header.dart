@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
-class Header extends StatelessWidget implements PreferredSizeWidget {
+class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,148 +47,155 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
           Spacer(),
-          ResponsiveVisibility(
-            visible: false,
-            visibleWhen: [
-              Condition.largerThan(name: MOBILE),
-            ],
-            child: Row(
-              children: [
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "HOME",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "MY INTRO",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "SERVICES",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "PORTFOLIO",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "TESTIMONIALS",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {},
-                    child: Text(
-                      "BLOGS",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 30.0,
-                ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: kDangerColor,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 28.0,
-                      vertical: 5.0,
-                    ),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "BLOGS",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          )
+          AdaptiveLayout(
+            desktop: HeaderRow(),
+            tablet: HeaderRow(),
+            mobile: Icon(FlutterIcons.menu_fea),
+          ),
         ],
       ),
     );
   }
+}
 
+class HeaderRow extends StatelessWidget {
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size(double.infinity, 100.0);
+  Widget build(BuildContext context) {
+    return ResponsiveVisibility(
+      visible: false,
+      visibleWhen: [
+        Condition.largerThan(name: MOBILE),
+      ],
+      child: Row(
+        children: [
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "HOME",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "MY INTRO",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "SERVICES",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "PORTFOLIO",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "TESTIMONIALS",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () {},
+              child: Text(
+                "BLOGS",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 30.0,
+          ),
+          MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: Container(
+              decoration: BoxDecoration(
+                color: kDangerColor,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 28.0,
+                vertical: 5.0,
+              ),
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  "BLOGS",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
