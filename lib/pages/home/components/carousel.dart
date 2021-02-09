@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:web_portfolio/utils/constants.dart';
 
 class Carousel extends StatelessWidget {
   @override
@@ -16,7 +17,25 @@ class Carousel extends StatelessWidget {
       ),
       child: RepaintBoundary(
         child: Container(
-          color: Colors.red,
+          child: Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "PRODUCT DESIGNER",
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
