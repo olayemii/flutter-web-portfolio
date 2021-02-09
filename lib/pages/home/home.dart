@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_portfolio/pages/home/components/header.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
 class Home extends StatelessWidget {
