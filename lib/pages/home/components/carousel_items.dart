@@ -29,7 +29,7 @@ List<CarouselItem> carouselItems = [
             ),
           ),
           SizedBox(
-            height: 30.0,
+            height: 25.0,
           ),
           Text(
             "MICHELE\nHARRINGTON",
@@ -50,6 +50,7 @@ List<CarouselItem> carouselItems = [
                   text: "Full-stack developer, based in Barcelona.\n",
                   style: TextStyle(
                     color: kCaptionColor,
+                    fontSize: 16.0,
                   ),
                 ),
                 TextSpan(
@@ -57,7 +58,7 @@ List<CarouselItem> carouselItems = [
                   style: TextStyle(
                     color: kCaptionColor,
                     height: 2.0,
-                    fontSize: 14.0,
+                    fontSize: 16.0,
                   ),
                 ),
                 MouseRegionSpan(
@@ -66,7 +67,7 @@ List<CarouselItem> carouselItems = [
                     text: "  Got a project? Let's talk.",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14.0,
+                      fontSize: 16.0,
                     ),
                   ),
                   onTap: () {},

@@ -16,7 +16,7 @@ class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height - 66.0,
+      height: MediaQuery.of(context).size.height * 0.8,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -24,7 +24,7 @@ class Carousel extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height: MediaQuery.of(context).size.height - 66.0,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   width: MediaQuery.of(context).size.width,
                   child: CarouselSlider(
                     carouselController: carouselController,
@@ -109,10 +109,7 @@ Widget buildDesktop(BuildContext context, Widget text, Widget image) {
       child: Row(
         children: [
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 50.0),
-              child: text,
-            ),
+            child: text,
           ),
           Expanded(
             child: image,
@@ -124,7 +121,11 @@ Widget buildDesktop(BuildContext context, Widget text, Widget image) {
 }
 
 Widget buildMobile(BuildContext context, Widget text, Widget image) {
-  return Center(
+  return Container(
+    constraints: BoxConstraints(
+      maxWidth: MediaQuery.of(context).size.width * 0.7,
+    ),
+    width: double.infinity,
     child: Wrap(
       children: [
         text,
