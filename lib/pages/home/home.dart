@@ -5,6 +5,7 @@ import 'package:web_portfolio/pages/home/components/carousel.dart';
 import 'package:web_portfolio/pages/home/components/cv_section.dart';
 import 'package:web_portfolio/pages/home/components/header.dart';
 import 'package:web_portfolio/pages/home/components/ios_app_ad.dart';
+import 'package:web_portfolio/pages/home/components/webside_ad.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
@@ -31,8 +32,9 @@ class Home extends StatelessWidget {
               ),
               IosAppAd(),
               SizedBox(
-                height: 100.0,
+                height: 50.0,
               ),
+              WebsiteAd(),
             ],
           ),
         ),
