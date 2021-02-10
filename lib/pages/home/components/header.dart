@@ -190,7 +190,6 @@ class Header extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 16.0,
-        vertical: 16.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -206,7 +205,6 @@ class Header extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: 16.0,
-        vertical: 16.0,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,6 +227,7 @@ class Header extends StatelessWidget {
     return Container(
       child: AdaptiveLayout(
         desktop: buildHeader(),
+        debugText: "Header",
         mobile: buildMobileHeader(),
         tablet: buildHeader(),
       ),

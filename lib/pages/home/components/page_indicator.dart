@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:web_portfolio/utils/constants.dart';
 
 class PageIndicator extends StatelessWidget {
   final ValueNotifier currentIndex;
@@ -19,8 +20,9 @@ class PageIndicator extends StatelessWidget {
             count: 5,
             effect: ExpandingDotsEffect(
               dotWidth: 10.0,
+              activeDotColor: kPrimaryColor,
               expansionFactor: 5.0,
-              dotHeight: 6.0,
+              dotHeight: 4.0,
             ),
           );
         },

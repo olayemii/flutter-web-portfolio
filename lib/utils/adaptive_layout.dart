@@ -4,12 +4,14 @@ class AdaptiveLayout extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
+  final String debugText;
 
   AdaptiveLayout({
     Key key,
     this.mobile,
     this.tablet,
     this.desktop,
+    this.debugText,
   }) : super(key: key);
 
   static bool isMobile(BuildContext context) =>
@@ -26,7 +28,7 @@ class AdaptiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        print(constraints.maxWidth);
+        print("From $debugText ${constraints.maxWidth}");
         if (constraints.maxWidth >= 1200.0) {
           return desktop;
         } else if (constraints.maxWidth >= 800.0 &&

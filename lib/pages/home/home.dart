@@ -11,14 +11,19 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Column(
-          children: [
-            Header(),
-            SizedBox(
-              height: 20.0,
-            ),
-            Carousel(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                height: 66.0,
+                child: Header(),
+              ),
+              Carousel(),
+              SizedBox(
+                height: 20.0,
+              ),
+            ],
+          ),
         ),
       ),
     );
