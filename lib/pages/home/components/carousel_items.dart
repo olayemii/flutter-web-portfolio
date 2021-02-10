@@ -87,7 +87,7 @@ List<CarouselItem> carouselItems = [
               ),
               padding: EdgeInsets.symmetric(
                 horizontal: 28.0,
-                vertical: 5.0,
+                vertical: 8.0,
               ),
               child: TextButton(
                 onPressed: () {},
