@@ -8,7 +8,6 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150.0,
       width: MediaQuery.of(context).size.width,
       child: AdaptiveLayout(
         desktop: _buildDesktop(),
@@ -26,15 +25,15 @@ Widget _buildDesktop() {
     defaultScale: false,
     child: Container(
       padding: EdgeInsets.symmetric(vertical: 14.0),
-      height: 150.0,
       child: Column(
         children: [
-          Expanded(
-            child: ResponsiveRowColumn(
-              rowSpacing: 20.0,
-              rowColumn: true,
-              children: List.generate(4, (index) => _footerGridItem()).toList(),
-            ),
+          ResponsiveRowColumn(
+            rowSpacing: 20.0,
+            rowColumn: true,
+            children: List.generate(4, (index) => _footerGridItem()).toList(),
+          ),
+          SizedBox(
+            width: 20.0,
           ),
           _footerText(),
         ],
@@ -60,6 +59,9 @@ Widget _buildTablet() {
               children: List.generate(4, (index) => _footerGridItem()).toList(),
             ),
           ),
+          SizedBox(
+            width: 20.0,
+          ),
           _footerText(),
         ],
       ),
@@ -74,15 +76,27 @@ Widget _buildMobile(context) {
     defaultScale: false,
     child: Container(
       padding: EdgeInsets.symmetric(vertical: 14.0),
-      height: 150.0,
+      height: 1000.0,
       child: Column(
         children: [
           Expanded(
-            child: ResponsiveRowColumn(
-              rowSpacing: 20.0,
-              rowColumn: true,
-              children: List.generate(4, (index) => _footerGridItem()).toList(),
+            child: ResponsiveGridView.builder(
+              gridDelegate: ResponsiveGridDelegate(
+                maxCrossAxisExtent: 500.0,
+                mainAxisSpacing: 20.0,
+                crossAxisSpacing: 20.0,
+              ),
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  height: 150.0,
+                  color: Colors.red,
+                );
+              },
+              itemCount: 4,
             ),
+          ),
+          SizedBox(
+            width: 20.0,
           ),
           _footerText(true),
         ],
@@ -96,14 +110,16 @@ ResponsiveRowColumnItem _footerGridItem() {
     rowFlex: 1,
     child: Container(
       color: Colors.red,
-      height: 100.0,
+      height: 50.0,
     ),
   );
 }
 
 Widget _footerText([bool isMobile = false]) {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.end,
+  return Flex(
+    direction: isMobile ? Axis.vertical : Axis.horizontal,
+    crossAxisAlignment:
+        isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.end,
     children: [
       Text(
         "Copyright © 2021 Michele Harrington. All rights Reserved.",
@@ -111,7 +127,11 @@ Widget _footerText([bool isMobile = false]) {
           color: Color(0xFFA6B1BB),
         ),
       ),
-      Spacer(),
+      isMobile
+          ? SizedBox(
+              height: 7.0,
+            )
+          : Spacer(),
       MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -124,12 +144,16 @@ Widget _footerText([bool isMobile = false]) {
           ),
         ),
       ),
-      Text(
-        "   |   ",
-        style: TextStyle(
-          color: Color(0xFFA6B1BB),
-        ),
-      ),
+      isMobile
+          ? SizedBox(
+              height: 7.0,
+            )
+          : Text(
+              "   |   ",
+              style: TextStyle(
+                color: Color(0xFFA6B1BB),
+              ),
+            ),
       MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
