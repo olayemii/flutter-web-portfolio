@@ -12,8 +12,8 @@ class Footer extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: AdaptiveLayout(
         desktop: _buildDesktop(),
-        tablet: _buildDesktop(),
-        mobile: _buildDesktop(),
+        tablet: _buildTablet(),
+        mobile: _buildMobile(context),
       ),
     );
   }
@@ -33,36 +33,7 @@ Widget _buildDesktop() {
             child: ResponsiveRowColumn(
               rowSpacing: 20.0,
               rowColumn: true,
-              children: [
-                ResponsiveRowColumnItem(
-                  rowFlex: 1,
-                  child: Container(
-                    color: Colors.red,
-                    height: 100.0,
-                  ),
-                ),
-                ResponsiveRowColumnItem(
-                  rowFlex: 1,
-                  child: Container(
-                    color: Colors.red,
-                    height: 100.0,
-                  ),
-                ),
-                ResponsiveRowColumnItem(
-                  rowFlex: 1,
-                  child: Container(
-                    color: Colors.red,
-                    height: 100.0,
-                  ),
-                ),
-                ResponsiveRowColumnItem(
-                  rowFlex: 1,
-                  child: Container(
-                    color: Colors.red,
-                    height: 100.0,
-                  ),
-                )
-              ],
+              children: List.generate(4, (index) => _footerGridItem()).toList(),
             ),
           ),
           _footerText(),
@@ -72,7 +43,55 @@ Widget _buildDesktop() {
   );
 }
 
-Widget _footerGridItem() {
+Widget _buildTablet() {
+  return ResponsiveWrapper(
+    maxWidth: 760.0,
+    minWidth: 760.0,
+    defaultScale: false,
+    child: Container(
+      padding: EdgeInsets.symmetric(vertical: 14.0),
+      height: 150.0,
+      child: Column(
+        children: [
+          Expanded(
+            child: ResponsiveRowColumn(
+              rowSpacing: 20.0,
+              rowColumn: true,
+              children: List.generate(4, (index) => _footerGridItem()).toList(),
+            ),
+          ),
+          _footerText(),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _buildMobile(context) {
+  return ResponsiveWrapper(
+    maxWidth: MediaQuery.of(context).size.width * 0.7,
+    minWidth: MediaQuery.of(context).size.width * 0.7,
+    defaultScale: false,
+    child: Container(
+      padding: EdgeInsets.symmetric(vertical: 14.0),
+      height: 150.0,
+      child: Column(
+        children: [
+          Expanded(
+            child: ResponsiveRowColumn(
+              rowSpacing: 20.0,
+              rowColumn: true,
+              children: List.generate(4, (index) => _footerGridItem()).toList(),
+            ),
+          ),
+          _footerText(true),
+        ],
+      ),
+    ),
+  );
+}
+
+ResponsiveRowColumnItem _footerGridItem() {
   return ResponsiveRowColumnItem(
     rowFlex: 1,
     child: Container(
@@ -82,7 +101,7 @@ Widget _footerGridItem() {
   );
 }
 
-Widget _footerText() {
+Widget _footerText([bool isMobile = false]) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.end,
     children: [
