@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_grid.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:web_portfolio/models/stat.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 
-class PortfolioStats extends StatelessWidget {
+List<String> items = [
+  "assets/brand1.png",
+  "assets/brand2.png",
+  "assets/brand3.png",
+  "assets/brand4.png",
+  "assets/brand5.png",
+];
+
+class Sponsors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveLayout(
@@ -16,24 +22,6 @@ class PortfolioStats extends StatelessWidget {
   }
 }
 
-List<Stat> stats = [
-  Stat(
-    title: "Clients",
-    count: "43",
-  ),
-  Stat(
-    title: "Projects",
-    count: "68+",
-  ),
-  Stat(
-    title: "Awards",
-    count: "17",
-  ),
-  Stat(
-    title: "Years\nExperience",
-    count: "10",
-  ),
-];
 Widget _buildContent(double width) {
   return Container(
     alignment: Alignment.center,
@@ -46,38 +34,24 @@ Widget _buildContent(double width) {
           shrinkWrap: true,
           alignment: Alignment.center,
           gridDelegate: ResponsiveGridDelegate(
-            maxCrossAxisExtent: 250.0,
+            maxCrossAxisExtent: 200.0,
             mainAxisSpacing: 20.0,
             crossAxisSpacing: 20.0,
           ),
           itemBuilder: (BuildContext context, int index) {
             return Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              alignment: Alignment.center,
+              child: Wrap(
                 children: [
-                  Text(
-                    "${stats[index].count}",
-                    style: GoogleFonts.oswald(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 32.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
-                    " ${stats[index].title}",
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Color(0xFFA6B1BB),
-                    ),
+                  Image.asset(
+                    items[index],
+                    width: 100.0,
                   ),
                 ],
               ),
             );
           },
-          itemCount: stats.length,
+          itemCount: items.length,
         ),
       ),
     ),
