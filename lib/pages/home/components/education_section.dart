@@ -1,7 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_portfolio/models/education.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
+
+List<Education> educations = [
+  Education(
+    description:
+        "Faucibus sed tristique fames sed aliquet ultricies eget viverra arcu vitae faucibus diam consequat.",
+    linkName: "www.fakewebsite.com",
+    period: "2019 - PRESENT",
+  ),
+  Education(
+    description:
+        "Sed eu risus dignissim sapien sollicitudin sceleri vamus cursus purus eget ligula lorem ipsum.",
+    linkName: "www.fakewebsite.com",
+    period: "2018 - 2019",
+  ),
+  Education(
+    description:
+        "Aliquam nec tortor non dolor sagittis accumsan. Vivamus tristique metus et venenatis pull.",
+    linkName: "www.fakewebsite.com",
+    period: "2017 - 2018",
+  ),
+  Education(
+    description:
+        "Molestie, a laoreet urna tempor vivamus vel gravida augue, quis imperdiet sem etiam sedio.",
+    linkName: "www.fakewebsite.com",
+    period: "2016 - 2017",
+  )
+];
 
 class EducationSection extends StatelessWidget {
   @override
@@ -41,74 +69,79 @@ Widget _buildContent(double width) {
               height: 1.5,
             ),
           ),
-          SizedBox(height: 15.0),
-          Container(
-            child: ResponsiveGridView.builder(
-              shrinkWrap: true,
-              alignment: Alignment.center,
-              gridDelegate: ResponsiveGridDelegate(
-                maxCrossAxisExtent: 500.0,
-                mainAxisSpacing: 20.0,
-                crossAxisSpacing: 20.0,
-                childAspectRatio: 1.8,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Fuck this",
-                        style: TextStyle(
-                          color: Colors.white,
-                          height: 1.8,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15.0,
-                      ),
-                      Row(
+          SizedBox(height: 40.0),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              return Container(
+                child: ResponsiveGridView.builder(
+                  shrinkWrap: true,
+                  alignment: Alignment.center,
+                  gridDelegate: ResponsiveGridDelegate(
+                    maxCrossAxisExtent: constraints.maxWidth / 2.0,
+                    mainAxisSpacing: 20.0,
+                    crossAxisSpacing: 20.0,
+                    childAspectRatio: 2.8,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CircleAvatar(
-                            radius: 25.0,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage: AssetImage(
-                              "assets/male.png",
+                          Text(
+                            educations[index].period,
+                            style: GoogleFonts.oswald(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 20.0,
                             ),
                           ),
                           SizedBox(
-                            width: 20.0,
+                            height: 15.0,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: [
-                              Text(
-                                "Olayemii Garuba",
-                                style: GoogleFonts.oswald(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 16.0,
+                              CircleAvatar(
+                                radius: 25.0,
+                                backgroundColor: Colors.transparent,
+                                backgroundImage: AssetImage(
+                                  "assets/male.png",
                                 ),
                               ),
                               SizedBox(
-                                height: 4.0,
+                                width: 20.0,
                               ),
-                              Text(
-                                "Local Man",
-                                style: TextStyle(
-                                  color: Color(0xFFA6B1BB),
-                                ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Olayemii Garuba",
+                                    style: GoogleFonts.oswald(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 4.0,
+                                  ),
+                                  Text(
+                                    "Local Man",
+                                    style: TextStyle(
+                                      color: Color(0xFFA6B1BB),
+                                    ),
+                                  )
+                                ],
                               )
                             ],
                           )
                         ],
-                      )
-                    ],
-                  ),
-                );
-              },
-              itemCount: 2,
-            ),
+                      ),
+                    );
+                  },
+                  itemCount: educations.length,
+                ),
+              );
+            },
           ),
         ],
       ),
