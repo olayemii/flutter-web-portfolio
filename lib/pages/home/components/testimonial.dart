@@ -5,7 +5,22 @@ import 'package:web_portfolio/models/testimonial.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
-List<TestimonialModel> testimonials = [];
+List<TestimonialModel> testimonials = [
+  TestimonialModel(
+    text:
+        "Rob Davidson is daucibus sed tristique fames sed aliquet ultricies eget viverra arcu vitae faucibus diam consequat maecenas turpis metus sit diam purus leo in varius.",
+    occupation: "Product Designer",
+    personName: "JANNY STONE",
+    profilePhoto: "assets/female.png",
+  ),
+  TestimonialModel(
+    text:
+        "Daucibus sed tristique fames sed aliquet ultricies eget viverra arcu vitae faucibus diam consequat maecenas turpis metus sit diam purus leo in varius retriko sedum est istera.",
+    occupation: "Art Director",
+    personName: "KEN WILLIAMS",
+    profilePhoto: "assets/male.png",
+  ),
+];
 
 class Testimonial extends StatelessWidget {
   @override
@@ -72,7 +87,7 @@ Widget _buildContent(double width) {
               ],
             ),
           ),
-          SizedBox(height: 25.0),
+          SizedBox(height: 45.0),
           Container(
             child: ResponsiveGridView.builder(
               shrinkWrap: true,
@@ -85,11 +100,69 @@ Widget _buildContent(double width) {
               ),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  alignment: Alignment.center,
-                  color: Colors.red,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Image.asset(
+                          "assets/quote.png",
+                          width: 50.0,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      Text(
+                        testimonials[index].text,
+                        style: TextStyle(
+                          color: Colors.white,
+                          height: 1.8,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 25.0,
+                            backgroundColor: Colors.transparent,
+                            backgroundImage: AssetImage(
+                              testimonials[index].profilePhoto,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                testimonials[index].personName,
+                                style: GoogleFonts.oswald(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 4.0,
+                              ),
+                              Text(
+                                testimonials[index].occupation,
+                                style: TextStyle(
+                                  color: Color(0xFFA6B1BB),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 );
               },
-              itemCount: 2,
+              itemCount: testimonials.length,
             ),
           ),
         ],

@@ -47,17 +47,67 @@ Widget _buildContent(double width) {
               shrinkWrap: true,
               alignment: Alignment.center,
               gridDelegate: ResponsiveGridDelegate(
-                maxCrossAxisExtent: 200.0,
+                maxCrossAxisExtent: 500.0,
                 mainAxisSpacing: 20.0,
                 crossAxisSpacing: 20.0,
+                childAspectRatio: 1.8,
               ),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  alignment: Alignment.center,
-                  color: Colors.red,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Fuck this",
+                        style: TextStyle(
+                          color: Colors.white,
+                          height: 1.8,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.0,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 25.0,
+                            backgroundColor: Colors.transparent,
+                            backgroundImage: AssetImage(
+                              "assets/male.png",
+                            ),
+                          ),
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Olayemii Garuba",
+                                style: GoogleFonts.oswald(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 4.0,
+                              ),
+                              Text(
+                                "Local Man",
+                                style: TextStyle(
+                                  color: Color(0xFFA6B1BB),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 );
               },
-              itemCount: 4,
+              itemCount: 2,
             ),
           ),
         ],
