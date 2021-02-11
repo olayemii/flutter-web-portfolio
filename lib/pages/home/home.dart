@@ -6,6 +6,7 @@ import 'package:web_portfolio/pages/home/components/cv_section.dart';
 import 'package:web_portfolio/pages/home/components/footer.dart';
 import 'package:web_portfolio/pages/home/components/header.dart';
 import 'package:web_portfolio/pages/home/components/ios_app_ad.dart';
+import 'package:web_portfolio/pages/home/components/portfolio_stats.dart';
 import 'package:web_portfolio/pages/home/components/skills_section.dart';
 import 'package:web_portfolio/pages/home/components/webside_ad.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
@@ -37,6 +38,10 @@ class Home extends StatelessWidget {
                 height: 50.0,
               ),
               WebsiteAd(),
+              SizedBox(
+                height: 50.0,
+              ),
+              PortfolioStats(),
               SizedBox(
                 height: 50.0,
               ),

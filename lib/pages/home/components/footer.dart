@@ -1,8 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
+import 'package:web_portfolio/models/footer_item.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
+
+List<FooterItem> footerItems = [
+  FooterItem(
+    iconPath: "assets/mappin.png",
+    title: "ADDRESS",
+    text1: "999 Carter Street",
+    text2: "Sailor Springs, IL 62434",
+  ),
+  FooterItem(
+    iconPath: "assets/phone.png",
+    title: "PHONE",
+    text1: "+1 618-689-9409",
+    text2: "+1 781-254-8437",
+  ),
+  FooterItem(
+    iconPath: "assets/email.png",
+    title: "EMAIL",
+    text1: "hello@example.com",
+    text2: "support@example.com",
+  ),
+  FooterItem(
+    iconPath: "assets/whatsapp.png",
+    title: "WHATSAPP CHAT",
+    text1: "+1 618-689-9409",
+  )
+];
 
 class Footer extends StatelessWidget {
   @override
@@ -24,13 +52,21 @@ Widget _buildDesktop() {
     minWidth: 1000.0,
     defaultScale: false,
     child: Container(
+      height: 200.0,
       padding: EdgeInsets.symmetric(vertical: 14.0),
       child: Column(
         children: [
-          ResponsiveRowColumn(
-            rowSpacing: 20.0,
-            rowColumn: true,
-            children: List.generate(4, (index) => _footerGridItem()).toList(),
+          Expanded(
+            child: ResponsiveRowColumn(
+              rowSpacing: 20.0,
+              rowColumn: true,
+              children: List.generate(
+                4,
+                (index) => _footerGridItem(
+                  item: footerItems[index],
+                ),
+              ).toList(),
+            ),
           ),
           SizedBox(
             width: 20.0,
@@ -49,14 +85,19 @@ Widget _buildTablet() {
     defaultScale: false,
     child: Container(
       padding: EdgeInsets.symmetric(vertical: 14.0),
-      height: 150.0,
+      height: 200.0,
       child: Column(
         children: [
           Expanded(
             child: ResponsiveRowColumn(
               rowSpacing: 20.0,
               rowColumn: true,
-              children: List.generate(4, (index) => _footerGridItem()).toList(),
+              children: List.generate(
+                4,
+                (index) => _footerGridItem(
+                  item: footerItems[index],
+                ),
+              ).toList(),
             ),
           ),
           SizedBox(
@@ -76,24 +117,66 @@ Widget _buildMobile(context) {
     defaultScale: false,
     child: Container(
       padding: EdgeInsets.symmetric(vertical: 14.0),
-      height: 1000.0,
       child: Column(
         children: [
-          Expanded(
-            child: ResponsiveGridView.builder(
-              gridDelegate: ResponsiveGridDelegate(
-                maxCrossAxisExtent: 500.0,
-                mainAxisSpacing: 20.0,
-                crossAxisSpacing: 20.0,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  height: 150.0,
-                  color: Colors.red,
-                );
-              },
-              itemCount: 4,
+          ResponsiveGridView.builder(
+            shrinkWrap: true,
+            alignment: Alignment.center,
+            gridDelegate: ResponsiveGridDelegate(
+              maxCrossAxisExtent: 250.0,
+              mainAxisSpacing: 20.0,
+              crossAxisSpacing: 20.0,
+              childAspectRatio: 1.5,
             ),
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          footerItems[index].iconPath,
+                          width: 25.0,
+                        ),
+                        SizedBox(
+                          width: 15.0,
+                        ),
+                        Text(
+                          footerItems[index].title,
+                          style: GoogleFonts.oswald(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 15.0),
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: footerItems[index].text1 + "\n",
+                            style: TextStyle(
+                              color: Color(0xFFA6B1BB),
+                            ),
+                          ),
+                          TextSpan(
+                            text: footerItems[index].text1,
+                            style: TextStyle(
+                              color: Color(0xFFA6B1BB),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
+            itemCount: 4,
           ),
           SizedBox(
             width: 20.0,
@@ -105,12 +188,54 @@ Widget _buildMobile(context) {
   );
 }
 
-ResponsiveRowColumnItem _footerGridItem() {
+ResponsiveRowColumnItem _footerGridItem({@required FooterItem item}) {
   return ResponsiveRowColumnItem(
     rowFlex: 1,
     child: Container(
-      color: Colors.red,
-      height: 50.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                item.iconPath,
+                width: 25.0,
+              ),
+              SizedBox(
+                width: 15.0,
+              ),
+              Text(
+                item.title,
+                style: GoogleFonts.oswald(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                ),
+              )
+            ],
+          ),
+          SizedBox(height: 15.0),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: item.text1 + "\n",
+                  style: TextStyle(
+                    color: Color(0xFFA6B1BB),
+                  ),
+                ),
+                TextSpan(
+                  text: item.text1,
+                  style: TextStyle(
+                    color: Color(0xFFA6B1BB),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+      height: 200.0,
     ),
   );
 }
