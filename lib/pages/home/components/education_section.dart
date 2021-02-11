@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/models/education.dart';
@@ -79,7 +80,7 @@ Widget _buildContent(double width) {
                   gridDelegate: ResponsiveGridDelegate(
                     maxCrossAxisExtent: constraints.maxWidth / 2.0,
                     mainAxisSpacing: 20.0,
-                    crossAxisSpacing: 20.0,
+                    crossAxisSpacing: 80.0,
                     childAspectRatio: 2.8,
                   ),
                   itemBuilder: (BuildContext context, int index) {
@@ -96,43 +97,26 @@ Widget _buildContent(double width) {
                             ),
                           ),
                           SizedBox(
-                            height: 15.0,
+                            height: 5.0,
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 25.0,
-                                backgroundColor: Colors.transparent,
-                                backgroundImage: AssetImage(
-                                  "assets/male.png",
-                                ),
+                          Text(
+                            educations[index].description,
+                            style: TextStyle(
+                              height: 1.5,
+                              color: Color(0xFFA6B1BB),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.0,
+                          ),
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Text(
+                              educations[index].linkName,
+                              style: TextStyle(
+                                color: Colors.white,
                               ),
-                              SizedBox(
-                                width: 20.0,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Olayemii Garuba",
-                                    style: GoogleFonts.oswald(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16.0,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 4.0,
-                                  ),
-                                  Text(
-                                    "Local Man",
-                                    style: TextStyle(
-                                      color: Color(0xFFA6B1BB),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
+                            ),
                           )
                         ],
                       ),
