@@ -31,9 +31,32 @@ Widget _buildDesktop() {
         children: [
           Expanded(
             child: ResponsiveRowColumn(
+              rowSpacing: 20.0,
               rowColumn: true,
               children: [
                 ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: Container(
+                    color: Colors.red,
+                    height: 100.0,
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: Container(
+                    color: Colors.red,
+                    height: 100.0,
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
+                  child: Container(
+                    color: Colors.red,
+                    height: 100.0,
+                  ),
+                ),
+                ResponsiveRowColumnItem(
+                  rowFlex: 1,
                   child: Container(
                     color: Colors.red,
                     height: 100.0,
@@ -42,50 +65,64 @@ Widget _buildDesktop() {
               ],
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Text(
-                "Copyright © 2021 Michele Harrington. All rights Reserved.",
-                style: TextStyle(
-                  color: Color(0xFFA6B1BB),
-                ),
-              ),
-              Spacer(),
-              MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "Privacy Policy",
-                    style: TextStyle(
-                      color: Color(0xFFA6B1BB),
-                    ),
-                  ),
-                ),
-              ),
-              Text(
-                "   |   ",
-                style: TextStyle(
-                  color: Color(0xFFA6B1BB),
-                ),
-              ),
-              MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Text(
-                    "Terms & Conditions",
-                    style: TextStyle(
-                      color: Color(0xFFA6B1BB),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          _footerText(),
         ],
       ),
     ),
+  );
+}
+
+Widget _footerGridItem() {
+  return ResponsiveRowColumnItem(
+    rowFlex: 1,
+    child: Container(
+      color: Colors.red,
+      height: 100.0,
+    ),
+  );
+}
+
+Widget _footerText() {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: [
+      Text(
+        "Copyright © 2021 Michele Harrington. All rights Reserved.",
+        style: TextStyle(
+          color: Color(0xFFA6B1BB),
+        ),
+      ),
+      Spacer(),
+      MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {},
+          child: Text(
+            "Privacy Policy",
+            style: TextStyle(
+              color: Color(0xFFA6B1BB),
+            ),
+          ),
+        ),
+      ),
+      Text(
+        "   |   ",
+        style: TextStyle(
+          color: Color(0xFFA6B1BB),
+        ),
+      ),
+      MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {},
+          child: Text(
+            "Terms & Conditions",
+            style: TextStyle(
+              color: Color(0xFFA6B1BB),
+            ),
+          ),
+        ),
+      ),
+    ],
   );
 }
