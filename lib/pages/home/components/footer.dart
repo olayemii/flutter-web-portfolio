@@ -30,7 +30,17 @@ Widget _buildDesktop() {
       child: Column(
         children: [
           Expanded(
-            child: SizedBox(),
+            child: ResponsiveRowColumn(
+              rowColumn: true,
+              children: [
+                ResponsiveRowColumnItem(
+                  child: Container(
+                    color: Colors.red,
+                    height: 100.0,
+                  ),
+                )
+              ],
+            ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
