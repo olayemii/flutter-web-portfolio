@@ -3,8 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_portfolio/pages/home/components/carousel.dart';
 import 'package:web_portfolio/pages/home/components/cv_section.dart';
+import 'package:web_portfolio/pages/home/components/footer.dart';
 import 'package:web_portfolio/pages/home/components/header.dart';
 import 'package:web_portfolio/pages/home/components/ios_app_ad.dart';
+import 'package:web_portfolio/pages/home/components/skills_section.dart';
 import 'package:web_portfolio/pages/home/components/webside_ad.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
@@ -35,6 +37,14 @@ class Home extends StatelessWidget {
                 height: 50.0,
               ),
               WebsiteAd(),
+              SizedBox(
+                height: 50.0,
+              ),
+              SkillSection(),
+              SizedBox(
+                height: 50.0,
+              ),
+              Footer(),
             ],
           ),
         ),
