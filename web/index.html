@@ -16,6 +16,7 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  <link rel="stylesheet" href="loader.css">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,6 +31,10 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <div id="loader">
+    <h1 id="loader-title">My Loading Text</h1>
+    <div class="lds-dual-ring"></div>
+  </div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
@@ -40,6 +45,7 @@
       });
     }
   </script>
-  <script src="main.dart.js" type="application/javascript"></script>
+  <script src="main.dart.js" type="application/javascript"
+  onendload="document.getElementById('loader').remove();"></script>
 </body>
 </html>
