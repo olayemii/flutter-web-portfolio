@@ -30,14 +30,14 @@ List<CarouselItem> carouselItems = [
             ),
           ),
           SizedBox(
-            height: 25.0,
+            height: 18.0,
           ),
           Text(
             "MICHELE\nHARRINGTON",
             style: GoogleFonts.oswald(
               color: Colors.white,
               fontWeight: FontWeight.w900,
-              fontSize: AdaptiveLayout.minmax(45.0, ScreenUtil().setSp(75.0)),
+              fontSize: AdaptiveLayout.minmax(40.0, ScreenUtil().setSp(75.0)),
               height: 1.3,
             ),
           ),
