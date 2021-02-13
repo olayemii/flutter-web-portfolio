@@ -92,9 +92,10 @@ List<CarouselItem> carouselItems = [
                 color: kPrimaryColor,
                 borderRadius: BorderRadius.circular(8.0),
               ),
+              height: 48.0,
               padding: EdgeInsets.symmetric(
                 horizontal: 28.0,
-                vertical: 4.0,
+                vertical: 0.0,
               ),
               child: TextButton(
                 onPressed: () {},
