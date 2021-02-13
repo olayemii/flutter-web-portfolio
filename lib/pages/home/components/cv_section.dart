@@ -105,7 +105,7 @@ Widget _buildUi(BuildContext context, double width,
                   gridDelegate: ResponsiveGridDelegate(
                     maxCrossAxisExtent: AdaptiveLayout.isTablet(context) ||
                             AdaptiveLayout.isMobile(context)
-                        ? constraints.maxWidth / 2.0
+                        ? (constraints.maxWidth / 2.0 - 20.0)
                         : 250.0,
                     childAspectRatio: AdaptiveLayout.isDesktop(context)
                         ? 1
@@ -144,9 +144,7 @@ Widget _buildUi(BuildContext context, double width,
                             style: TextStyle(
                               color: Color(0xFFA6B1BB),
                               height: 1.5,
-                              fontSize: AdaptiveLayout.isMobile(context)
-                                  ? 18.0
-                                  : 14.0,
+                              fontSize: 15.0,
                             ),
                           ),
                         ],

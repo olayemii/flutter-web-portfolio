@@ -67,7 +67,7 @@ Widget _buildUi(double width) {
                       style: TextStyle(
                         color: kCaptionColor,
                         height: 1.5,
-                        fontSize: 16.0,
+                        fontSize: 15.0,
                       ),
                     ),
                     SizedBox(
