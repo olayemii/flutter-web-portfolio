@@ -36,7 +36,7 @@ class EducationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveLayout(
-      mobile: _buildContent(MediaQuery.of(context).size.width * .7),
+      mobile: _buildContent(MediaQuery.of(context).size.width * .8),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),
     );
@@ -50,85 +50,90 @@ Widget _buildContent(double width) {
       maxWidth: width,
       minWidth: width,
       defaultScale: false,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "EDUCATION",
-            style: GoogleFonts.oswald(
-              color: Colors.white,
-              fontWeight: FontWeight.w900,
-              fontSize: 30.0,
-              height: 1.3,
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "EDUCATION",
+              style: GoogleFonts.oswald(
+                color: Colors.white,
+                fontWeight: FontWeight.w900,
+                fontSize: 30.0,
+                height: 1.3,
+              ),
             ),
-          ),
-          SizedBox(height: 5.0),
-          Text(
-            "A full stack allaround designer that tristique est placerat\nin massa consectetur quisque lobortis vitae faucibus diam",
-            style: TextStyle(
-              color: Colors.white,
-              height: 1.5,
+            SizedBox(height: 5.0),
+            Text(
+              "A full stack allaround designer that tristique est placerat\nin massa consectetur quisque lobortis vitae faucibus diam",
+              style: TextStyle(
+                color: Colors.white,
+                height: 1.5,
+              ),
             ),
-          ),
-          SizedBox(height: 40.0),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              return Container(
-                child: ResponsiveGridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  alignment: Alignment.center,
-                  gridDelegate: ResponsiveGridDelegate(
-                    maxCrossAxisExtent: constraints.maxWidth / 2.0,
-                    mainAxisSpacing: 20.0,
-                    crossAxisSpacing: 80.0,
-                    childAspectRatio: 2.8,
-                  ),
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            educations[index].period,
-                            style: GoogleFonts.oswald(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 5.0,
-                          ),
-                          Text(
-                            educations[index].description,
-                            style: TextStyle(
-                              height: 1.5,
-                              color: Color(0xFFA6B1BB),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          MouseRegion(
-                            cursor: SystemMouseCursors.click,
-                            child: Text(
-                              educations[index].linkName,
-                              style: TextStyle(
+            SizedBox(height: 40.0),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  child: ResponsiveGridView.builder(
+                    padding: EdgeInsets.all(0.0),
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    alignment: Alignment.center,
+                    gridDelegate: ResponsiveGridDelegate(
+                      maxCrossAxisExtent: constraints.maxWidth / 2.0,
+                      // mainAxisSpacing: 20.0,
+                      childAspectRatio: 16.0 / 9.0,
+                    ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              educations[index].period,
+                              style: GoogleFonts.oswald(
                                 color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20.0,
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                    );
-                  },
-                  itemCount: educations.length,
-                ),
-              );
-            },
-          ),
-        ],
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Text(
+                              educations[index].description,
+                              style: TextStyle(
+                                height: 1.5,
+                                color: Color(0xFFA6B1BB),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: Text(
+                                educations[index].linkName,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 40.0,
+                            )
+                          ],
+                        ),
+                      );
+                    },
+                    itemCount: educations.length,
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     ),
   );
