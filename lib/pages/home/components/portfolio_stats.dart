@@ -35,59 +35,58 @@ List<Stat> stats = [
   ),
 ];
 Widget _buildContent(double width) {
-  return LayoutBuilder(
-    builder: (context, constraints) {
-      return Container(
-        alignment: Alignment.center,
-        child: ResponsiveWrapper(
-          maxWidth: width,
-          minWidth: width,
-          defaultScale: false,
-          child: Container(
-            child: ResponsiveGridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              alignment: Alignment.center,
-              gridDelegate: ResponsiveGridDelegate(
-                childAspectRatio: 1.8,
-                maxCrossAxisExtent: AdaptiveLayout.isMobile(context)
-                    ? (constraints.maxWidth / 2.0 - 20.0)
-                    : (constraints.maxWidth / 4.0 - 20.0),
-                mainAxisSpacing: 20.0,
-                crossAxisSpacing: 20.0,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "${stats[index].count}",
-                        style: GoogleFonts.oswald(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 32.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Text(
-                        " ${stats[index].title}",
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          color: Color(0xFFA6B1BB),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              itemCount: stats.length,
+  return Container(
+    alignment: Alignment.center,
+    child: ResponsiveWrapper(
+      maxWidth: width,
+      minWidth: width,
+      defaultScale: false,
+      child: LayoutBuilder(builder: (context, constraints) {
+        return Container(
+          child: ResponsiveGridView.builder(
+            padding: EdgeInsets.all(0.0),
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            alignment: Alignment.center,
+            gridDelegate: ResponsiveGridDelegate(
+              maxCrossAxisExtent: AdaptiveLayout.isMobile(context)
+                  ? (constraints.maxWidth / 2.0 - 20.0)
+                  : constraints.maxWidth / 4.0 - 20.0,
+              childAspectRatio: 2.5,
+              mainAxisSpacing: 20.0,
+              crossAxisSpacing: 20.0,
             ),
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${stats[index].count}",
+                      style: GoogleFonts.oswald(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 32.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      " ${stats[index].title}",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Color(0xFFA6B1BB),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+            itemCount: stats.length,
           ),
-        ),
-      );
-    },
+        );
+      }),
+    ),
   );
 }
