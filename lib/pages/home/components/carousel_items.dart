@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_portfolio/models/carousel_item.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
@@ -36,7 +37,7 @@ List<CarouselItem> carouselItems = [
             style: GoogleFonts.oswald(
               color: Colors.white,
               fontWeight: FontWeight.w900,
-              fontSize: 50.0,
+              fontSize: AdaptiveLayout.minmax(45.0, ScreenUtil().setSp(75.0)),
               height: 1.3,
             ),
           ),
@@ -47,7 +48,7 @@ List<CarouselItem> carouselItems = [
             "Full-stack developer, based in Barcelona.",
             style: TextStyle(
               color: kCaptionColor,
-              fontSize: 16.0,
+              fontSize: 15.0,
               height: 1.0,
             ),
           ),
@@ -61,7 +62,7 @@ List<CarouselItem> carouselItems = [
                   "Need a fully custom website? ",
                   style: TextStyle(
                     color: kCaptionColor,
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     height: 1.5,
                   ),
                 ),
@@ -74,7 +75,7 @@ List<CarouselItem> carouselItems = [
                       style: TextStyle(
                         height: 1.5,
                         color: Colors.white,
-                        fontSize: 16.0,
+                        fontSize: 15.0,
                       ),
                     ),
                   ),
