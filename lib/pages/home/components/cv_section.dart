@@ -73,7 +73,6 @@ Widget _buildUi(BuildContext context, double width,
                   style: GoogleFonts.oswald(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
-                    fontSize: 12.0.sp,
                     height: 1.3,
                   ),
                 ),
