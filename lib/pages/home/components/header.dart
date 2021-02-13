@@ -202,22 +202,25 @@ class Header extends StatelessWidget {
   }
 
   Widget buildMobileHeader() {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16.0,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          HeaderLogo(),
-          GestureDetector(
-            onTap: () {},
-            child: Icon(
-              FlutterIcons.menu_fea,
-              color: Colors.white,
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 16.0,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            HeaderLogo(),
+            GestureDetector(
+              onTap: () {},
+              child: Icon(
+                FlutterIcons.menu_fea,
+                color: Colors.white,
+                size: 28.0,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

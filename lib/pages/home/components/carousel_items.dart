@@ -43,34 +43,41 @@ List<CarouselItem> carouselItems = [
           SizedBox(
             height: 10.0,
           ),
-          RichText(
-            text: TextSpan(
+          Text(
+            "Full-stack developer, based in Barcelona.",
+            style: TextStyle(
+              color: kCaptionColor,
+              fontSize: 16.0,
+              height: 1.0,
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Container(
+            child: Wrap(
               children: [
-                TextSpan(
-                  text: "Full-stack developer, based in Barcelona.\n",
+                Text(
+                  "Need a fully custom website? ",
                   style: TextStyle(
                     color: kCaptionColor,
                     fontSize: 16.0,
+                    height: 1.5,
                   ),
                 ),
-                TextSpan(
-                  text: "Need a fully custom website?",
-                  style: TextStyle(
-                    color: kCaptionColor,
-                    height: 2.0,
-                    fontSize: 16.0,
-                  ),
-                ),
-                MouseRegionSpan(
-                  mouseCursor: SystemMouseCursors.click,
-                  inlineSpan: TextSpan(
-                    text: "  Got a project? Let's talk.",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.0,
+                GestureDetector(
+                  onTap: () {},
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: Text(
+                      " Got a project? Let's talk.",
+                      style: TextStyle(
+                        height: 1.5,
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      ),
                     ),
                   ),
-                  onTap: () {},
                 )
               ],
             ),

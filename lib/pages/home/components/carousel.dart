@@ -15,8 +15,10 @@ CarouselController carouselController = CarouselController();
 class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double containerHeight = MediaQuery.of(context).size.height *
+        (AdaptiveLayout.isMobile(context) ? 0.7 : .85);
     return Container(
-      height: MediaQuery.of(context).size.height * 0.8,
+      height: containerHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -83,17 +85,6 @@ class Carousel extends StatelessWidget {
               ],
             ),
           ),
-          // ResponsiveVisibility(
-          //   visible: false,
-          //   visibleWhen: [Condition.largerThan(name: MOBILE)],
-          //   child: Container(
-          //     padding: EdgeInsets.only(left: 50.0),
-          //     constraints: BoxConstraints(
-          //       maxWidth: 1000.0,
-          //     ),
-          //     child: PageChanger(),
-          //   ),
-          // )
         ],
       ),
     );
@@ -123,7 +114,7 @@ Widget buildDesktop(BuildContext context, Widget text, Widget image) {
 Widget buildMobile(BuildContext context, Widget text, Widget image) {
   return Container(
     constraints: BoxConstraints(
-      maxWidth: MediaQuery.of(context).size.width * 0.7,
+      maxWidth: MediaQuery.of(context).size.width * 0.8,
     ),
     width: double.infinity,
     child: Wrap(
@@ -154,40 +145,40 @@ Widget buildTablet(BuildContext context, Widget text, Widget image) {
   );
 }
 
-class PageChanger extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () {},
-            child: Icon(
-              FlutterIcons.caret_square_left_faw5,
-              color: kPrimaryColor,
-              size: 28.0,
-            ),
-          ),
-        ),
-        SizedBox(
-          width: 15.0,
-        ),
-        MouseRegion(
-          cursor: SystemMouseCursors.click,
-          child: GestureDetector(
-            onTap: () {
-              carouselController.nextPage();
-            },
-            child: Icon(
-              FlutterIcons.caret_square_right_faw5,
-              color: kPrimaryColor,
-              size: 28.0,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
+// class PageChanger extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Row(
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       children: [
+//         MouseRegion(
+//           cursor: SystemMouseCursors.click,
+//           child: GestureDetector(
+//             onTap: () {},
+//             child: Icon(
+//               FlutterIcons.caret_square_left_faw5,
+//               color: kPrimaryColor,
+//               size: 28.0,
+//             ),
+//           ),
+//         ),
+//         SizedBox(
+//           width: 15.0,
+//         ),
+//         MouseRegion(
+//           cursor: SystemMouseCursors.click,
+//           child: GestureDetector(
+//             onTap: () {
+//               carouselController.nextPage();
+//             },
+//             child: Icon(
+//               FlutterIcons.caret_square_right_faw5,
+//               color: kPrimaryColor,
+//               size: 28.0,
+//             ),
+//           ),
+//         )
+//       ],
+//     );
+//   }
+// }
