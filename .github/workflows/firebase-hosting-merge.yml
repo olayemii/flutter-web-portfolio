@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entrypoint: /build/web
+          entrypoint: build/web
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_WEB_PORTFOLIO_DDD55 }}"
           channelId: live
