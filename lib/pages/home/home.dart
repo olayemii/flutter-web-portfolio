@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
                 height: 70.0,
               ),
               WebsiteAd(),
-              // PortfolioStats(),
+              PortfolioStats(),
               // SizedBox(
               //   height: 50.0,
               // ),
