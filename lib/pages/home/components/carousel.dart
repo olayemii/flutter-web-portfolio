@@ -2,13 +2,11 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/pages/home/components/carousel_items.dart';
 import 'package:web_portfolio/pages/home/components/page_indicator.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
-import 'package:web_portfolio/utils/constants.dart';
 
 CarouselController carouselController = CarouselController();
 
@@ -18,72 +16,71 @@ class Carousel extends StatelessWidget {
     double containerHeight = MediaQuery.of(context).size.height *
         (AdaptiveLayout.isMobile(context) ? 0.7 : .85);
     return Container(
-      height: containerHeight,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.8,
-                  width: MediaQuery.of(context).size.width,
-                  child: CarouselSlider(
-                    carouselController: carouselController,
-                    options: CarouselOptions(
-                      viewportFraction: 1.0,
-                      scrollPhysics: NeverScrollableScrollPhysics(),
-                    ),
-                    items: [1, 2, 3, 4, 5].map((i) {
-                      return Builder(
-                        builder: (BuildContext context) {
-                          return Container(
-                            child: AdaptiveLayout(
-                              desktop: buildDesktop(
-                                context,
-                                carouselItems[0].text,
-                                Container(
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.contain,
-                                      image: AssetImage(
-                                        "assets/person.png",
-                                      ),
+          Stack(
+            children: [
+              Container(
+                height: containerHeight,
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.center,
+                child: CarouselSlider(
+                  carouselController: carouselController,
+                  options: CarouselOptions(
+                    viewportFraction: 1.0,
+                    scrollPhysics: NeverScrollableScrollPhysics(),
+                    height: containerHeight,
+                  ),
+                  items: [1, 2, 3, 4, 5].map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Container(
+                          child: AdaptiveLayout(
+                            desktop: buildDesktop(
+                              context,
+                              carouselItems[0].text,
+                              Container(
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.contain,
+                                    image: AssetImage(
+                                      "assets/person.png",
                                     ),
                                   ),
-                                  child: carouselItems[0].image,
                                 ),
-                              ),
-                              tablet: buildTablet(
-                                context,
-                                carouselItems[0].text,
-                                carouselItems[0].image,
-                              ),
-                              mobile: buildMobile(
-                                context,
-                                carouselItems[0].text,
-                                carouselItems[0].image,
+                                child: carouselItems[0].image,
                               ),
                             ),
-                          );
-                        },
-                      );
-                    }).toList(),
+                            tablet: buildTablet(
+                              context,
+                              carouselItems[0].text,
+                              carouselItems[0].image,
+                            ),
+                            mobile: buildMobile(
+                              context,
+                              carouselItems[0].text,
+                              carouselItems[0].image,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
+              ),
+              Positioned(
+                right: 0.0,
+                top: (MediaQuery.of(context).size.height - 150.0) / 2 - 70.0,
+                child: ResponsiveVisibility(
+                  visible: false,
+                  visibleWhen: [Condition.largerThan(name: MOBILE)],
+                  child: PageIndicator(
+                    currentIndex: ValueNotifier(0),
                   ),
                 ),
-                Positioned(
-                  right: 0.0,
-                  top: (MediaQuery.of(context).size.height - 150.0) / 2 - 70.0,
-                  child: ResponsiveVisibility(
-                    visible: false,
-                    visibleWhen: [Condition.largerThan(name: MOBILE)],
-                    child: PageIndicator(
-                      currentIndex: ValueNotifier(0),
-                    ),
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ],
       ),
@@ -117,11 +114,7 @@ Widget buildMobile(BuildContext context, Widget text, Widget image) {
       maxWidth: MediaQuery.of(context).size.width * 0.8,
     ),
     width: double.infinity,
-    child: Wrap(
-      children: [
-        text,
-      ],
-    ),
+    child: text,
   );
 }
 

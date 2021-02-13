@@ -15,7 +15,7 @@ List<CarouselItem> carouselItems = [
         // height: 500.0,
       ),
     ),
-    text: RepaintBoundary(
+    text: Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

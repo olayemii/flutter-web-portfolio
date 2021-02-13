@@ -122,6 +122,7 @@ Widget _buildMobile(context) {
           ResponsiveGridView.builder(
             shrinkWrap: true,
             alignment: Alignment.center,
+            physics: NeverScrollableScrollPhysics(),
             gridDelegate: ResponsiveGridDelegate(
               maxCrossAxisExtent: 250.0,
               mainAxisSpacing: 20.0,

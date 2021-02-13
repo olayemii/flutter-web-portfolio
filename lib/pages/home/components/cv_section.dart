@@ -41,19 +41,19 @@ class CvSection extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       child: AdaptiveLayout(
-        desktop: _buildDesktop(context, 1000.0),
-        mobile: _buildDesktop(
+        desktop: _buildUi(context, 1000.0),
+        mobile: _buildUi(
           context,
-          MediaQuery.of(context).size.width * 0.7,
+          MediaQuery.of(context).size.width * 0.78,
           defaultScale: false,
         ),
-        tablet: _buildDesktop(context, 760.0, defaultScale: true),
+        tablet: _buildUi(context, 760.0, defaultScale: true),
       ),
     );
   }
 }
 
-Widget _buildDesktop(BuildContext context, double width,
+Widget _buildUi(BuildContext context, double width,
     {bool defaultScale = true}) {
   return ResponsiveWrapper(
     maxWidth: width,
@@ -96,52 +96,67 @@ Widget _buildDesktop(BuildContext context, double width,
             SizedBox(
               height: 50.0,
             ),
-            ResponsiveGridView.builder(
-              shrinkWrap: true,
-              alignment: Alignment.center,
-              gridDelegate: ResponsiveGridDelegate(
-                maxCrossAxisExtent: 250.0,
-                mainAxisSpacing: 20.0,
-                crossAxisSpacing: 20.0,
-                childAspectRatio: 1.5,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+            Container(
+              child: LayoutBuilder(builder: (_context, constraints) {
+                return ResponsiveGridView.builder(
+                  padding: EdgeInsets.all(0.0),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  alignment: Alignment.topCenter,
+                  gridDelegate: ResponsiveGridDelegate(
+                    maxCrossAxisExtent: AdaptiveLayout.isTablet(context) ||
+                            AdaptiveLayout.isMobile(context)
+                        ? constraints.maxWidth / 2.0
+                        : 250.0,
+                    childAspectRatio: AdaptiveLayout.isDesktop(context)
+                        ? 1
+                        : MediaQuery.of(context).size.aspectRatio * 1.5,
+                    mainAxisSpacing: 20.0,
+                    crossAxisSpacing: 20.0,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            designProcesses[index].imagePath,
-                            width: 40.0,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Image.asset(
+                                designProcesses[index].imagePath,
+                                width: 40.0,
+                              ),
+                              SizedBox(
+                                width: 15.0,
+                              ),
+                              Text(
+                                designProcesses[index].title,
+                                style: GoogleFonts.oswald(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            width: 15.0,
-                          ),
+                          SizedBox(height: 15.0),
                           Text(
-                            designProcesses[index].title,
-                            style: GoogleFonts.oswald(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                            designProcesses[index].subtitle,
+                            style: TextStyle(
+                              color: Color(0xFFA6B1BB),
+                              height: 1.5,
+                              fontSize: AdaptiveLayout.isMobile(context)
+                                  ? 18.0
+                                  : 14.0,
                             ),
-                          )
+                          ),
                         ],
                       ),
-                      SizedBox(height: 15.0),
-                      Text(
-                        designProcesses[index].subtitle,
-                        style: TextStyle(
-                          color: Color(0xFFA6B1BB),
-                        ),
-                      ),
-                    ],
-                  ),
+                    );
+                  },
+                  itemCount: designProcesses.length,
                 );
-              },
-              itemCount: designProcesses.length,
+              }),
             ),
           ],
         ),

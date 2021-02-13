@@ -31,6 +31,7 @@ Widget _buildContent(double width) {
       defaultScale: false,
       child: Container(
         child: ResponsiveGridView.builder(
+          physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           alignment: Alignment.center,
           gridDelegate: ResponsiveGridDelegate(

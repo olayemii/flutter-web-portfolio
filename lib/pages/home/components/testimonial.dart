@@ -91,6 +91,7 @@ Widget _buildContent(double width) {
           Container(
             child: ResponsiveGridView.builder(
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               alignment: Alignment.center,
               gridDelegate: ResponsiveGridDelegate(
                 maxCrossAxisExtent: 500.0,

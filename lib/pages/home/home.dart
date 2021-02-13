@@ -40,30 +40,27 @@ class Home extends StatelessWidget {
                 height: 50.0,
               ),
               WebsiteAd(),
-              SizedBox(
-                height: 50.0,
-              ),
-              PortfolioStats(),
-              SizedBox(
-                height: 50.0,
-              ),
-              EducationSection(),
-              SizedBox(
-                height: 50.0,
-              ),
-              SkillSection(),
-              SizedBox(
-                height: 50.0,
-              ),
-              Sponsors(),
-              SizedBox(
-                height: 50.0,
-              ),
-              Testimonial(),
-              SizedBox(
-                height: 50.0,
-              ),
-              Footer(),
+              // PortfolioStats(),
+              // SizedBox(
+              //   height: 50.0,
+              // ),
+              // EducationSection(),
+              // SizedBox(
+              //   height: 50.0,
+              // ),
+              // SkillSection(),
+              // SizedBox(
+              //   height: 50.0,
+              // ),
+              // Sponsors(),
+              // SizedBox(
+              //   height: 50.0,
+              // ),
+              // Testimonial(),
+              // SizedBox(
+              //   height: 50.0,
+              // ),
+              // Footer(),
             ],
           ),
         ),
