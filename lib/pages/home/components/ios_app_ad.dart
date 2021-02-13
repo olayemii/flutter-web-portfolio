@@ -62,40 +62,12 @@ Widget _buildUi(double width) {
                     SizedBox(
                       height: 10.0,
                     ),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text:
-                                "Faucibus sed tristique fames sed aliquet ultricies eget viverra arcu. Vitae faucibus diam consequat aecenas. Turpis metus sit diam purus leo varius. Nunc amet tristique estars",
-                            style: TextStyle(
-                              color: kCaptionColor,
-                              height: 1.5,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          MouseRegionSpan(
-                            mouseCursor: SystemMouseCursors.click,
-                            inlineSpan: TextSpan(
-                              text: "adipiscing vulputate est phasellus.",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16.0,
-                                height: 1.5,
-                              ),
-                            ),
-                            onTap: () {},
-                          ),
-                          TextSpan(
-                            text:
-                                "Volutpat faucibus per praesent actual state.",
-                            style: TextStyle(
-                              color: kCaptionColor,
-                              fontSize: 16.0,
-                              height: 1.5,
-                            ),
-                          ),
-                        ],
+                    Text(
+                      "Faucibus sed tristique fames sed aliquet ultricies eget viverra arcu. Vitae faucibus diam consequat aecenas. Turpis metus sit diam purus leo varius. Nunc amet tristique estars Volutpat faucibus per praesent actual state.",
+                      style: TextStyle(
+                        color: kCaptionColor,
+                        height: 1.5,
+                        fontSize: 16.0,
                       ),
                     ),
                     SizedBox(
