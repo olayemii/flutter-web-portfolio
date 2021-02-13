@@ -16,57 +16,67 @@ class Carousel extends StatelessWidget {
     double containerHeight = MediaQuery.of(context).size.height *
         (AdaptiveLayout.isMobile(context) ? 0.7 : .85);
     return Container(
+      height: containerHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Stack(
+            alignment: Alignment.topCenter,
             children: [
               Container(
-                height: containerHeight,
                 width: MediaQuery.of(context).size.width,
                 alignment: Alignment.center,
                 child: CarouselSlider(
                   carouselController: carouselController,
                   options: CarouselOptions(
-                    viewportFraction: 1.0,
+                    viewportFraction: 1,
+                    enlargeCenterPage: true,
                     scrollPhysics: NeverScrollableScrollPhysics(),
                     height: containerHeight,
                   ),
-                  items: [1, 2, 3, 4, 5].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                          child: AdaptiveLayout(
-                            desktop: buildDesktop(
-                              context,
-                              carouselItems[0].text,
-                              Container(
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image: AssetImage(
-                                      "assets/person.png",
+                  items: [1, 2, 3, 4, 5].map(
+                    (i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                            constraints: BoxConstraints(
+                              minHeight: containerHeight,
+                            ),
+                            child: AdaptiveLayout(
+                              desktop: buildDesktop(
+                                context,
+                                carouselItems[0].text,
+                                Container(
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      fit: BoxFit.contain,
+                                      image: AssetImage(
+                                        "assets/person.png",
+                                      ),
                                     ),
                                   ),
+                                  child: carouselItems[0].image,
                                 ),
-                                child: carouselItems[0].image,
+                              ),
+                              tablet: buildTablet(
+                                context,
+                                carouselItems[0].text,
+                                carouselItems[0].image,
+                              ),
+                              mobile: buildMobile(
+                                context,
+                                Container(
+                                  height: 900.0,
+                                  child: carouselItems[0].text,
+                                ),
+                                carouselItems[0].image,
                               ),
                             ),
-                            tablet: buildTablet(
-                              context,
-                              carouselItems[0].text,
-                              carouselItems[0].image,
-                            ),
-                            mobile: buildMobile(
-                              context,
-                              carouselItems[0].text,
-                              carouselItems[0].image,
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  }).toList(),
+                          );
+                        },
+                      );
+                    },
+                  ).toList(),
                 ),
               ),
               Positioned(

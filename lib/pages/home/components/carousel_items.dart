@@ -20,6 +20,7 @@ List<CarouselItem> carouselItems = [
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Text(
             "PRODUCT DESIGNER",
@@ -37,7 +38,7 @@ List<CarouselItem> carouselItems = [
             style: GoogleFonts.oswald(
               color: Colors.white,
               fontWeight: FontWeight.w900,
-              fontSize: AdaptiveLayout.minmax(40.0, ScreenUtil().setSp(75.0)),
+              fontSize: AdaptiveLayout.minmax(40.0, ScreenUtil().setSp(65.0)),
               height: 1.3,
             ),
           ),
@@ -96,7 +97,6 @@ List<CarouselItem> carouselItems = [
               height: 48.0,
               padding: EdgeInsets.symmetric(
                 horizontal: 28.0,
-                vertical: 0.0,
               ),
               child: TextButton(
                 onPressed: () {},

@@ -110,9 +110,9 @@ Widget _buildUi(double width) {
                               color: kPrimaryColor,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
+                            height: 48.0,
                             padding: EdgeInsets.symmetric(
                               horizontal: 28.0,
-                              vertical: 8.0,
                             ),
                             child: TextButton(
                               onPressed: () {},
@@ -141,9 +141,9 @@ Widget _buildUi(double width) {
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
+                            height: 48.0,
                             padding: EdgeInsets.symmetric(
                               horizontal: 28.0,
-                              vertical: 8.0,
                             ),
                             child: TextButton(
                               onPressed: () {},

@@ -166,6 +166,7 @@ Widget _buildUi(double width) {
               ),
             ),
             ResponsiveRowColumnItem(
+              rowFlex: 1,
               child: Image.asset("assets/laptop.png"),
             ),
           ],

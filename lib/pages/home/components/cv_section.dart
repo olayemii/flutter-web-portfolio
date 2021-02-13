@@ -73,7 +73,7 @@ Widget _buildUi(BuildContext context, double width,
                   style: GoogleFonts.oswald(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
-                    height: 1.3,
+                    height: 1.8,
                   ),
                 ),
                 GestureDetector(
