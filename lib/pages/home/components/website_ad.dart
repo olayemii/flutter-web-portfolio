@@ -84,11 +84,10 @@ Widget _buildUi(double width) {
                           ),
                           TextSpan(
                             text:
-                                "Volutpat faucibus per praesent actual state.",
+                                " Volutpat faucibus per praesent actual state.",
                             style: TextStyle(
                               color: kCaptionColor,
                               fontSize: 16.0,
-                              height: 1.5,
                             ),
                           ),
                         ],

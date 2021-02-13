@@ -33,6 +33,9 @@ class Home extends StatelessWidget {
               ),
               CvSection(),
               IosAppAd(),
+              SizedBox(
+                height: 70.0,
+              ),
               WebsiteAd(),
               // PortfolioStats(),
               // SizedBox(
