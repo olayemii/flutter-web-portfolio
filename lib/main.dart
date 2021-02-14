@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
             platform: TargetPlatform.android,
             scaffoldBackgroundColor: kBackgroundColor,
             primaryColor: kPrimaryColor,
+            canvasColor: kBackgroundColor,
             textTheme: GoogleFonts.latoTextTheme(),
           ),
           builder: (context, widget) => ResponsiveWrapper.builder(
