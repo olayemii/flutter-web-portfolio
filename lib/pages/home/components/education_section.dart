@@ -81,9 +81,8 @@ Widget _buildContent(double width) {
                     shrinkWrap: true,
                     alignment: Alignment.center,
                     gridDelegate: ResponsiveGridDelegate(
-                      maxCrossAxisExtent: constraints.maxWidth / 2.0,
+                      maxCrossAxisExtent: constraints.maxWidth,
                       // mainAxisSpacing: 20.0,
-                      childAspectRatio: 16.0 / 9.0,
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
