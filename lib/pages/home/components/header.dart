@@ -6,6 +6,7 @@ import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
+import 'package:web_portfolio/utils/globals.dart';
 
 class HeaderLogo extends StatelessWidget {
   @override
@@ -212,7 +213,10 @@ class Header extends StatelessWidget {
           children: [
             HeaderLogo(),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                print("Open drawer");
+                Globals.scaffoldKey.currentState.openEndDrawer();
+              },
               child: Icon(
                 FlutterIcons.menu_fea,
                 color: Colors.white,

@@ -14,11 +14,14 @@ import 'package:web_portfolio/pages/home/components/testimonial.dart';
 import 'package:web_portfolio/pages/home/components/website_ad.dart';
 import 'package:web_portfolio/utils/adaptive_layout.dart';
 import 'package:web_portfolio/utils/constants.dart';
+import 'package:web_portfolio/utils/globals.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: Drawer(),
+      key: Globals.scaffoldKey,
       body: Container(
         child: SingleChildScrollView(
           child: Column(
