@@ -233,7 +233,10 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: AdaptiveLayout(
-        desktop: buildHeader(),
+        desktop: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: buildHeader(),
+        ),
         debugText: "Header",
         mobile: buildMobileHeader(),
         tablet: buildHeader(),

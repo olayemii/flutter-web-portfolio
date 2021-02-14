@@ -15,7 +15,7 @@ class Sponsors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveLayout(
-      mobile: _buildContent(MediaQuery.of(context).size.width * .7),
+      mobile: _buildContent(MediaQuery.of(context).size.width * .8),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),
     );
@@ -33,6 +33,7 @@ Widget _buildContent(double width) {
         child: ResponsiveGridView.builder(
           physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
+          padding: EdgeInsets.all(0.0),
           alignment: Alignment.center,
           gridDelegate: ResponsiveGridDelegate(
             maxCrossAxisExtent: 200.0,

@@ -72,16 +72,18 @@ Widget _buildContent(double width) {
                   ),
                 ),
                 TextSpan(
-                  text: " estars\nadipiscing vulputate ",
+                  text: " estars adipiscing vulputate ",
                   style: TextStyle(
                     color: kPrimaryColor,
                     fontWeight: FontWeight.w700,
+                    height: 1.8,
                   ),
                 ),
                 TextSpan(
                   text: "est phasellus. Volutpat faucibus per.",
                   style: TextStyle(
                     color: Colors.white,
+                    height: 1.8,
                   ),
                 ),
               ],
@@ -95,7 +97,6 @@ Widget _buildContent(double width) {
               alignment: Alignment.center,
               gridDelegate: ResponsiveGridDelegate(
                 maxCrossAxisExtent: 500.0,
-                mainAxisSpacing: 20.0,
                 crossAxisSpacing: 20.0,
               ),
               itemBuilder: (BuildContext context, int index) {

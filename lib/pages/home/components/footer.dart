@@ -112,8 +112,8 @@ Widget _buildTablet() {
 
 Widget _buildMobile(context) {
   return ResponsiveWrapper(
-    maxWidth: MediaQuery.of(context).size.width * 0.7,
-    minWidth: MediaQuery.of(context).size.width * 0.7,
+    maxWidth: MediaQuery.of(context).size.width * 0.8,
+    minWidth: MediaQuery.of(context).size.width * 0.8,
     defaultScale: false,
     child: Container(
       padding: EdgeInsets.symmetric(vertical: 14.0),
@@ -121,7 +121,7 @@ Widget _buildMobile(context) {
         children: [
           ResponsiveGridView.builder(
             shrinkWrap: true,
-            alignment: Alignment.center,
+            padding: EdgeInsets.all(0.0),
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: ResponsiveGridDelegate(
               maxCrossAxisExtent: 250.0,
@@ -132,10 +132,9 @@ Widget _buildMobile(context) {
             itemBuilder: (BuildContext context, int index) {
               return Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(
                           footerItems[index].iconPath,
@@ -156,6 +155,7 @@ Widget _buildMobile(context) {
                     ),
                     SizedBox(height: 15.0),
                     RichText(
+                      textAlign: TextAlign.start,
                       text: TextSpan(
                         children: [
                           TextSpan(
@@ -197,6 +197,7 @@ ResponsiveRowColumnItem _footerGridItem({@required FooterItem item}) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Image.asset(
                 item.iconPath,
@@ -244,6 +245,7 @@ ResponsiveRowColumnItem _footerGridItem({@required FooterItem item}) {
 Widget _footerText([bool isMobile = false]) {
   return Flex(
     direction: isMobile ? Axis.vertical : Axis.horizontal,
+    mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment:
         isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.end,
     children: [
