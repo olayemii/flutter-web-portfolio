@@ -57,9 +57,6 @@ class Home extends StatelessWidget {
                 height: 50.0,
               ),
               Testimonial(),
-              SizedBox(
-                height: 50.0,
-              ),
               Footer(),
             ],
           ),

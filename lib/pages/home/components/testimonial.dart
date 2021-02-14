@@ -97,7 +97,6 @@ Widget _buildContent(double width) {
                 maxCrossAxisExtent: 500.0,
                 mainAxisSpacing: 20.0,
                 crossAxisSpacing: 20.0,
-                childAspectRatio: 1.8,
               ),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
