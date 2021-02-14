@@ -26,7 +26,7 @@ class Testimonial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveLayout(
-      mobile: _buildContent(MediaQuery.of(context).size.width * .7),
+      mobile: _buildContent(MediaQuery.of(context).size.width * .8),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),
     );
