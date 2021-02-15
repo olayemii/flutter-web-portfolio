@@ -1,14 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-class AdaptiveLayout extends StatelessWidget {
+class ScreenHelper extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
   final String debugText;
 
-  AdaptiveLayout({
+  ScreenHelper({
     Key key,
     this.mobile,
     this.tablet,
@@ -25,10 +23,6 @@ class AdaptiveLayout extends StatelessWidget {
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 1200.0;
-
-  static double minmax(double value1, double value2) {
-    return max(value1, value2);
-  }
 
   @override
   Widget build(BuildContext context) {

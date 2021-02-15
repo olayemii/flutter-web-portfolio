@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_grid.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/models/stat.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 
 class PortfolioStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveLayout(
+    return ScreenHelper(
       mobile: _buildContent(MediaQuery.of(context).size.width * .7),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),
@@ -49,7 +49,7 @@ Widget _buildContent(double width) {
             physics: NeverScrollableScrollPhysics(),
             alignment: Alignment.center,
             gridDelegate: ResponsiveGridDelegate(
-              maxCrossAxisExtent: AdaptiveLayout.isMobile(context)
+              maxCrossAxisExtent: ScreenHelper.isMobile(context)
                   ? (constraints.maxWidth / 2.0 - 20.0)
                   : constraints.maxWidth / 4.0 - 20.0,
               childAspectRatio: 2.5,

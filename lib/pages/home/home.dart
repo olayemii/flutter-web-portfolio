@@ -12,7 +12,7 @@ import 'package:web_portfolio/pages/home/components/skills_section.dart';
 import 'package:web_portfolio/pages/home/components/sponsors.dart';
 import 'package:web_portfolio/pages/home/components/testimonial.dart';
 import 'package:web_portfolio/pages/home/components/website_ad.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/globals.dart';
 

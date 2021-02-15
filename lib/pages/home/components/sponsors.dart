@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_grid.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 
 List<String> items = [
   "assets/brand1.png",
@@ -14,7 +14,7 @@ List<String> items = [
 class Sponsors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveLayout(
+    return ScreenHelper(
       mobile: _buildContent(MediaQuery.of(context).size.width * .8),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),

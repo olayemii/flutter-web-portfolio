@@ -6,7 +6,7 @@ import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/pages/home/components/carousel_items.dart';
 import 'package:web_portfolio/pages/home/components/page_indicator.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 
 CarouselController carouselController = CarouselController();
 
@@ -14,7 +14,7 @@ class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double containerHeight = MediaQuery.of(context).size.height *
-        (AdaptiveLayout.isMobile(context) ? 0.7 : .85);
+        (ScreenHelper.isMobile(context) ? 0.7 : .85);
     return Container(
       height: containerHeight,
       child: Column(
@@ -42,7 +42,7 @@ class Carousel extends StatelessWidget {
                             constraints: BoxConstraints(
                               minHeight: containerHeight,
                             ),
-                            child: AdaptiveLayout(
+                            child: ScreenHelper(
                               desktop: buildDesktop(
                                 context,
                                 carouselItems[0].text,

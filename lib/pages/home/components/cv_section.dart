@@ -4,9 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_grid.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:web_portfolio/models/design_process.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 import 'package:web_portfolio/utils/constants.dart';
-import 'package:sizer/sizer.dart';
 
 List<DesignProcess> designProcesses = [
   DesignProcess(
@@ -40,7 +39,7 @@ class CvSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      child: AdaptiveLayout(
+      child: ScreenHelper(
         desktop: _buildUi(context, 1000.0),
         mobile: _buildUi(
           context,
@@ -103,11 +102,11 @@ Widget _buildUi(BuildContext context, double width,
                   physics: NeverScrollableScrollPhysics(),
                   alignment: Alignment.topCenter,
                   gridDelegate: ResponsiveGridDelegate(
-                    maxCrossAxisExtent: AdaptiveLayout.isTablet(context) ||
-                            AdaptiveLayout.isMobile(context)
+                    maxCrossAxisExtent: ScreenHelper.isTablet(context) ||
+                            ScreenHelper.isMobile(context)
                         ? (constraints.maxWidth / 2.0 - 20.0)
                         : 250.0,
-                    childAspectRatio: AdaptiveLayout.isDesktop(context)
+                    childAspectRatio: ScreenHelper.isDesktop(context)
                         ? 1
                         : MediaQuery.of(context).size.aspectRatio * 1.5,
                     mainAxisSpacing: 20.0,

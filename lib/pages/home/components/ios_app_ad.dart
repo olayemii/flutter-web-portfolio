@@ -3,14 +3,14 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/mouse_region_span.dart';
 
 class IosAppAd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveLayout(
+    return ScreenHelper(
       desktop: _buildUi(1000.0),
       tablet: _buildUi(760.0),
       mobile: _buildUi(MediaQuery.of(context).size.width * .8),

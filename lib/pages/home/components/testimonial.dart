@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/models/testimonial.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 import 'package:web_portfolio/utils/constants.dart';
 
 List<TestimonialModel> testimonials = [
@@ -25,7 +25,7 @@ List<TestimonialModel> testimonials = [
 class Testimonial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AdaptiveLayout(
+    return ScreenHelper(
       mobile: _buildContent(MediaQuery.of(context).size.width * .8),
       tablet: _buildContent(760.0),
       desktop: _buildContent(1000.0),

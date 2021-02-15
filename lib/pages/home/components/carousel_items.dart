@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_portfolio/models/carousel_item.dart';
-import 'package:web_portfolio/utils/adaptive_layout.dart';
+import 'package:web_portfolio/utils/screen_helper.dart';
 import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/mouse_region_span.dart';
 
@@ -38,7 +37,7 @@ List<CarouselItem> carouselItems = [
             style: GoogleFonts.oswald(
               color: Colors.white,
               fontWeight: FontWeight.w900,
-              fontSize: AdaptiveLayout.minmax(40.0, ScreenUtil().setSp(65.0)),
+              fontSize: 40.0,
               height: 1.3,
             ),
           ),
