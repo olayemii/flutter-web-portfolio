@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:web_portfolio/models/carousel_item.dart';
-import 'package:web_portfolio/utils/screen_helper.dart';
+import 'package:web_portfolio/models/carousel_item_model.dart';
 import 'package:web_portfolio/utils/constants.dart';
-import 'package:web_portfolio/utils/mouse_region_span.dart';
 
-List<CarouselItem> carouselItems = [
-  CarouselItem(
-    image: Container(
-      child: Image.asset(
-        "assets/person.png",
-        fit: BoxFit.contain,
-        // height: 500.0,
-      ),
-    ),
+List<CarouselItemModel> carouselItems = List.generate(
+  5,
+  (index) => CarouselItemModel(
     text: Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             "PRODUCT DESIGNER",
@@ -36,8 +28,8 @@ List<CarouselItem> carouselItems = [
             "MICHELE\nHARRINGTON",
             style: GoogleFonts.oswald(
               color: Colors.white,
-              fontWeight: FontWeight.w900,
               fontSize: 40.0,
+              fontWeight: FontWeight.w900,
               height: 1.3,
             ),
           ),
@@ -45,7 +37,7 @@ List<CarouselItem> carouselItems = [
             height: 10.0,
           ),
           Text(
-            "Full-stack developer, based in Barcelona.",
+            "Full-stack developer, based in Barcelona",
             style: TextStyle(
               color: kCaptionColor,
               fontSize: 15.0,
@@ -59,7 +51,7 @@ List<CarouselItem> carouselItems = [
             child: Wrap(
               children: [
                 Text(
-                  "Need a fully custom website? ",
+                  "Need a full custom website?",
                   style: TextStyle(
                     color: kCaptionColor,
                     fontSize: 15.0,
@@ -109,9 +101,15 @@ List<CarouselItem> carouselItems = [
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     ),
-  )
-];
+    image: Container(
+      child: Image.asset(
+        "assets/person.png",
+        fit: BoxFit.contain,
+      ),
+    ),
+  ),
+);

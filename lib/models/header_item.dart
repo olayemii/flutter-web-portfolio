@@ -5,5 +5,9 @@ class HeaderItem {
   final VoidCallback onTap;
   final bool isButton;
 
-  HeaderItem({this.title, this.onTap, this.isButton = false});
+  HeaderItem({
+    this.title,
+    this.onTap,
+    this.isButton = false,
+  });
 }

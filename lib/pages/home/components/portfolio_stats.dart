@@ -1,92 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_framework/responsive_grid.dart';
-import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:web_portfolio/models/stat.dart';
+import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
+
+final List<Stat> stats = [
+  Stat(count: "43", text: "Clients"),
+  Stat(count: "68+", text: "Projects"),
+  Stat(count: "17", text: "Awards"),
+  Stat(count: "10", text: "Years\nExperience"),
+];
 
 class PortfolioStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenHelper(
-      mobile: _buildContent(MediaQuery.of(context).size.width * .7),
-      tablet: _buildContent(760.0),
-      desktop: _buildContent(1000.0),
+    return Container(
+      alignment: Alignment.center,
+      child: ScreenHelper(
+        desktop: _buildUi(kDesktopMaxWidth, context),
+        tablet: _buildUi(kTabletMaxWidth, context),
+        mobile: _buildUi(getMobileMaxWidth(context), context),
+      ),
     );
   }
-}
 
-List<Stat> stats = [
-  Stat(
-    title: "Clients",
-    count: "43",
-  ),
-  Stat(
-    title: "Projects",
-    count: "68+",
-  ),
-  Stat(
-    title: "Awards",
-    count: "17",
-  ),
-  Stat(
-    title: "Years\nExperience",
-    count: "10",
-  ),
-];
-Widget _buildContent(double width) {
-  return Container(
-    alignment: Alignment.center,
-    child: ResponsiveWrapper(
-      maxWidth: width,
-      minWidth: width,
-      defaultScale: false,
-      child: LayoutBuilder(builder: (context, constraints) {
-        return Container(
-          child: ResponsiveGridView.builder(
-            padding: EdgeInsets.all(0.0),
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            alignment: Alignment.center,
-            gridDelegate: ResponsiveGridDelegate(
-              maxCrossAxisExtent: ScreenHelper.isMobile(context)
-                  ? (constraints.maxWidth / 2.0 - 20.0)
-                  : constraints.maxWidth / 4.0 - 20.0,
-              childAspectRatio: 2.5,
-              mainAxisSpacing: 20.0,
-              crossAxisSpacing: 20.0,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "${stats[index].count}",
-                      style: GoogleFonts.oswald(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 32.0,
-                        color: Colors.white,
+  Widget _buildUi(double width, BuildContext context) {
+    return Container(
+      child: ResponsiveWrapper(
+        maxWidth: width,
+        minWidth: width,
+        defaultScale: false,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraint) {
+            return Wrap(
+              spacing: 20.0,
+              runSpacing: 20.0,
+              children: stats.map((stat) {
+                return Container(
+                  padding: EdgeInsets.symmetric(vertical: 15.0),
+                  // Just use the helper here really
+                  width: ScreenHelper.isMobile(context)
+                      ? constraint.maxWidth / 2.0 - 20
+                      : (constraint.maxWidth / 4.0 - 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        stat.count,
+                        style: GoogleFonts.oswald(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 32.0,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(
-                      " ${stats[index].title}",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        color: Color(0xFFA6B1BB),
+                      SizedBox(
+                        width: 10.0,
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
-            itemCount: stats.length,
-          ),
-        );
-      }),
-    ),
-  );
+                      Text(
+                        stat.text,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          color: kCaptionColor,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }).toList(),
+            );
+          },
+        ),
+      ),
+    );
+  }
 }

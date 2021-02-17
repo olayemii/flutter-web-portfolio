@@ -4,15 +4,9 @@ class ScreenHelper extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
-  final String debugText;
 
-  ScreenHelper({
-    Key key,
-    this.mobile,
-    this.tablet,
-    this.desktop,
-    this.debugText,
-  }) : super(key: key);
+  ScreenHelper({Key key, this.desktop, this.mobile, this.tablet})
+      : super(key: key);
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 800.0;
@@ -28,10 +22,9 @@ class ScreenHelper extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        print("From $debugText ${constraints.maxWidth}");
         if (constraints.maxWidth >= 1200.0) {
           return desktop;
-        } else if (constraints.maxWidth >= 800.0 &&
+        } else if (constraints.maxWidth >= 800 &&
             constraints.maxWidth < 1200.0) {
           return tablet;
         } else {

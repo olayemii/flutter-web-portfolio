@@ -8,8 +8,8 @@ class FooterItem {
 
   FooterItem({
     @required this.iconPath,
-    this.text1 = "",
-    this.text2 = "",
     @required this.title,
+    @required this.text1,
+    @required this.text2,
   });
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Education {
-  final String period;
   final String description;
   final String linkName;
+  final String period;
 
   Education({
     @required this.description,

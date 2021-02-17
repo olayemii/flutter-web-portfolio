@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Stat {
-  String count;
-  String title;
+  final String count;
+  final String text;
 
   Stat({
-    @required this.title,
     @required this.count,
+    @required this.text,
   });
 }

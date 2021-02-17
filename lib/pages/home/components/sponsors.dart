@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_framework/responsive_grid.dart';
-import 'package:responsive_framework/responsive_wrapper.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:web_portfolio/utils/constants.dart';
 import 'package:web_portfolio/utils/screen_helper.dart';
 
-List<String> items = [
+final List<String> sponsorsLogo = [
   "assets/brand1.png",
   "assets/brand2.png",
   "assets/brand3.png",
@@ -14,47 +14,44 @@ List<String> items = [
 class Sponsors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenHelper(
-      mobile: _buildContent(MediaQuery.of(context).size.width * .8),
-      tablet: _buildContent(760.0),
-      desktop: _buildContent(1000.0),
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 50.0),
+      child: ScreenHelper(
+        desktop: _buildUi(kDesktopMaxWidth),
+        tablet: _buildUi(kTabletMaxWidth),
+        mobile: _buildUi(getMobileMaxWidth(context)),
+      ),
     );
   }
 }
 
-Widget _buildContent(double width) {
-  return Container(
-    alignment: Alignment.center,
+Widget _buildUi(double width) {
+  return Center(
     child: ResponsiveWrapper(
-      maxWidth: width,
       minWidth: width,
+      maxWidth: width,
       defaultScale: false,
-      child: Container(
-        child: ResponsiveGridView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          padding: EdgeInsets.all(0.0),
-          alignment: Alignment.center,
-          gridDelegate: ResponsiveGridDelegate(
-            maxCrossAxisExtent: 200.0,
-            mainAxisSpacing: 20.0,
-            crossAxisSpacing: 20.0,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              alignment: Alignment.center,
-              child: Wrap(
-                children: [
-                  Image.asset(
-                    items[index],
-                    width: 100.0,
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Wrap(
+            runSpacing: 50.0,
+            spacing: 50.0,
+            children: sponsorsLogo
+                .map(
+                  (logo) => Container(
+                    height: 20.0,
+                    child: Image.asset(logo),
+                    constraints: BoxConstraints(
+                      // max of 3 per row when on mobile and 5 per row on bigger screens
+                      maxWidth: ScreenHelper.isMobile(context)
+                          ? constraints.maxWidth / 3.0 - 50.0
+                          : constraints.maxWidth / 5.0 - 50.0,
+                    ),
                   ),
-                ],
-              ),
-            );
-          },
-          itemCount: items.length,
-        ),
+                )
+                .toList(),
+          );
+        },
       ),
     ),
   );

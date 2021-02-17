@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class TestimonialModel {
+class Testimonial {
   final String text;
-  final String personName;
   final String occupation;
+  final String personName;
   final String profilePhoto;
 
-  TestimonialModel({
+  Testimonial({
     @required this.text,
     @required this.occupation,
     @required this.personName,
