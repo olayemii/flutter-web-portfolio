@@ -8,6 +8,7 @@ https://web-portfolio-ddd55.web.app
 
 ### SpeedCode Tutorial
 https://youtu.be/MD9_J09I6ew
+
 https://youtu.be/lZ5hhEpnn3s
 
 Web Portfolio, Based on a design on UpLabs and hosted on Firebase 💓.
@@ -53,12 +54,12 @@ Olayemi Garuba [![Twitter Follow](https://img.shields.io/twitter/follow/iam_olay
 
 
 #### Mobile Screens
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589167/assets/phone1_ptibcj.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589168/assets/phone2_sm6lmt.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589170/assets/phone3_ec7iwb.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589169/assets/phone4_xwldjr.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589172/assets/phone5_qb51tt.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589169/assets/phone6_x8ynjy.png)
-![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_320/v1613589172/assets/phone7_szij23.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589167/assets/phone1_ptibcj.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589168/assets/phone2_sm6lmt.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589170/assets/phone3_ec7iwb.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589169/assets/phone4_xwldjr.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589172/assets/phone5_qb51tt.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589169/assets/phone6_x8ynjy.png)
+![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589172/assets/phone7_szij23.png)
 
 
