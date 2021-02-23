@@ -28,28 +28,6 @@
   <link rel="icon" type="image/png" href="favicon.png"/>
 
   <title>web_portfolio</title>
-  <script>
-    function loadScript( url, callback ) {
-      var script = document.createElement( "script" )
-      script.type = "text/javascript";
-      if(script.readyState) {  // only required for IE <9
-        script.onreadystatechange = function() {
-          if ( script.readyState === "loaded" || script.readyState === "complete" ) {
-            script.onreadystatechange = null;
-            callback();
-          }
-        };
-      } else {  //Others
-        script.onload = function() {
-          callback();
-        };
-      }
-
-      script.src = url;
-      script.type = "application/javascript"
-      document.getElementsByTagName( "head" )[0].appendChild( script );
-    } 
-  </script>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -66,8 +44,9 @@
       });
     }
   </script>
+  <script src="https://raw.githubusercontent.com/headjs/headjs/v0.99/dist/head.min.js" ></script>
   <script>
-    loadScript("main.dart.js?version=2", () => {
+    head.js("main.dart.js?version=3", function() {
       document.getElementById('loader').remove();
     });
   </script>
