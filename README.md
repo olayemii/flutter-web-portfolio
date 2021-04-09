@@ -62,4 +62,3 @@ Olayemi Garuba [![Twitter Follow](https://img.shields.io/twitter/follow/iam_olay
 ![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589169/assets/phone6_x8ynjy.png)
 ![Screenshot](https://res.cloudinary.com/olayemii/image/upload/c_scale,w_250/v1613589172/assets/phone7_szij23.png)
 
-
