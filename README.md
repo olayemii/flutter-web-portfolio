@@ -42,8 +42,6 @@ Or Support me on Patreon
 Olayemi Garuba [![Twitter Follow](https://img.shields.io/twitter/follow/iam_olayemii.svg?style=social)](https://twitter.com/iam_olayemii)
 
 
-
-
 ![Screenshot](https://res.cloudinary.com/olayemii/image/upload/v1613589180/assets/web1_y9yrmi.png)
 ![Screenshot](https://res.cloudinary.com/olayemii/image/upload/v1613589179/assets/web2_zn7w5n.png)
 ![Screenshot](https://res.cloudinary.com/olayemii/image/upload/v1613589176/assets/web3_mmq07i.png)
